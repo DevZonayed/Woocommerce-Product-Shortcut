@@ -4,8 +4,8 @@
  * Description: Adds a custom shortcode to display any Woocommerce product with extra options in Wordpress, add to cart, and add to wishlist on any Wordpress page.
  * Author:      Zonayed Ahamad
  * Version:     1.0.0
- * Author URI:  https://www.themehigh.com
- * Plugin URI:  https://www.themehigh.com
+ * Author URI:  https://jonayed.me
+ * Plugin URI:  https://github.com/DevZonayed/Woocommerce-Product-Shortcut
  * Text Domain: woo-advanced-product-shortcut
  * WC requires at least: 3.0.0
  * WC tested up to: 7.8

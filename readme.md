@@ -4,7 +4,7 @@ The WC Product Shortcut with Full Details Including Extra Product Options is a c
 
 ## Installation
 
-1. Download the plugin ZIP file from the [GitHub repository](https://github.com/example/repo).
+1. Download the plugin ZIP file from the [GitHub repository](https://github.com/DevZonayed/Woocommerce-Product-Shortcut).
 2. Log in to your WordPress admin panel.
 3. Go to "Plugins" > "Add New".
 4. Click on the "Upload Plugin" button.
@@ -41,4 +41,6 @@ Copy code
 
 This project is licensed under the [MIT License](LICENSE).
 
-## Author Info
+## Author
+
+The WC Product Shortcut with Full Details Including Extra Product Options plugin was developed by [Zonayed Ahamad](https://jonayed.me). For any inquiries or support, please contact [zonayed320@gmail.com](mailto:zonayed320@gmail.com).
