@@ -1,15 +1,16 @@
 <?php
 /*
  * Plugin Name: WC Product Shortcut with Full Details Including Extra Product Options
- * Description: Adds a custom shortcode to display any Woocommerce product with extra options in Wordpress, add to cart, and add to wishlist on any Wordpress page.
- * Author:      Zonayed Ahamad
- * Version:     1.0.0
- * Author URI:  https://jonayed.me
- * Plugin URI:  https://github.com/DevZonayed/Woocommerce-Product-Shortcut
+ * Description: Adds a custom shortcode to display any WooCommerce product with extra options in WordPress, add to cart, and add to wishlist on any WordPress page.
+ * Author: Zonayed Ahamad
+ * Version: 1.0.0
+ * Author URI: https://jonayed.me
+ * Plugin URI: https://github.com/DevZonayed/Woocommerce-Product-Shortcut
  * Text Domain: woo-advanced-product-shortcut
  * WC requires at least: 3.0.0
  * WC tested up to: 7.8
  */
+
 
 function znyd_wc_product_page_shortcode( $atts ) {
 	$atts = shortcode_atts( array(
@@ -25,19 +26,12 @@ function znyd_wc_product_page_shortcode( $atts ) {
 	$product = wc_get_product( $product_id );
 
 	if ( $product ) {
-		// Output the product title
 		echo '<h2>' . $product->get_title() . '</h2>';
 
-		// Output the product price
 		echo '<p>' . $product->get_price_html() . '</p>';
 
-		// Output the extra product options
-		echo do_shortcode( '[product_page id="' . $product_id . '"]' );
-
-		// Output the add to cart button
 		echo '<p>' . do_shortcode( '[add_to_cart id="' . $product_id . '"]' ) . '</p>';
 
-		// Output the add to wishlist button (if you are using a wishlist plugin)
 		if ( function_exists( 'YITH_WCWL' ) ) {
 			echo do_shortcode( '[yith_wcwl_add_to_wishlist product_id="' . $product_id . '"]' );
 		}
@@ -45,4 +39,15 @@ function znyd_wc_product_page_shortcode( $atts ) {
 
 	return ob_get_clean();
 }
+
+function tm_epo_js_loader() {
+	do_action( 'woocommerce_tm_epo_enqueue_scripts' );
+}
+
+function show_product_extra_options() {
+	do_action( "woocommerce_tm_epo_fields" );
+}
+
+add_action( 'woocommerce_before_add_to_cart_button', 'show_product_extra_options' );
+add_action( 'wp_enqueue_scripts', 'tm_epo_js_loader' );
 add_shortcode( 'znyd_wc_product_page', 'znyd_wc_product_page_shortcode' );
